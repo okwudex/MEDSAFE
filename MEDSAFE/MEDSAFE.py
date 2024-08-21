@@ -6,6 +6,7 @@ from MEDSAFE.UI.base import base_page
 from rxconfig import config
 from .pages1.about import about_page
 from .pages1.pricing import pricing_page
+from .pages1.contact import contact_page
 
 
 
