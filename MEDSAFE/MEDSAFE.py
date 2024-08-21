@@ -6,8 +6,8 @@ from MEDSAFE.UI.base import base_page
 from rxconfig import config
 from .pages1.about import about_page
 from .pages1.pricing import pricing_page
-#from .pages1.contact import contact_page
-import navigation
+from .pages1.contact import contact_page
+
 
 
 
@@ -52,7 +52,7 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(about_page, route=navigation.routes.ABOUT_ROUTE)
-app.add_page(pricing_page, route =navigation.routes.PRICING_ROUTE)
-app.add_page(contact_page, route=navigation.routes.CONTACT_ROUTE)
+app.add_page(about_page, route='/about')
+app.add_page(pricing_page, route ='/pricing')
+#app.add_page(contact_page, route='/contact')
 
