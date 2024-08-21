@@ -4,7 +4,9 @@ import reflex as rx
 
 from MEDSAFE.UI.base import base_page
 from rxconfig import config
-from pages import about
+from .pages1.about import about_page
+from .pages1.pricing import pricing_page
+
 
 
 
@@ -47,4 +49,6 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(about, route="/about")
+app.add_page(about_page, route="/about")
+app.add_page(pricing_page, route ="/pricing" )
+

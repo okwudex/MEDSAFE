@@ -1,18 +1,16 @@
 import reflex as rx
 from ..UI.base import base_page
 
-def index() -> rx.Component:
-    # About Page (About Us)
+def pricing_page() -> rx.Component:
+    # About Page (Index)
     return base_page(
         
         rx.vstack(
-            rx.heading('ABOUT US', size="9"),
+            rx.heading("Pricing", size="9"),
             
             rx.text(
-                "We are a new web development company just trying things out.",
-                
+                "Just trying out this new web coding called reflex!"
             ),
-            
             spacing="5",
             justify="center",
             text_align="center",
@@ -23,3 +21,4 @@ def index() -> rx.Component:
         
     )
     
+
