@@ -1,6 +1,6 @@
 import reflex as rx
 from ..UI.base import base_page
-@rx.page('/contact')
+@rx.page(route='/contact')
 def contact_page() -> rx.Component:
     # About Page (Index)
     return base_page(
