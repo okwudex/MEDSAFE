@@ -1,4 +1,5 @@
 import reflex as rx
+from ..navigation import routes, NavState
 
 
 def navbar_link(text: str, url: str) -> rx.Component:
@@ -17,17 +18,18 @@ def navbar() -> rx.Component:
                         width="2.25em",
                         height="auto",
                         border_radius="25%",
+                        on_click=NavState.to_home,
                     ),
                     rx.heading(
-                        "Reflex", size="7", weight="bold"
+                        "Reflex", size="7", weight="bold", on_click=NavState.to_home,
                     ),
                     align_items="center",
                 ),
                 rx.hstack(
-                    navbar_link("Home", "/#"),
-                    navbar_link("About", "/about"),
-                    navbar_link("Pricing", "/pricing"),
-                    navbar_link("Contact", "/contact"),
+                    navbar_link("Home", routes.HOME_ROUTE),
+                    navbar_link("About", routes.ABOUT_ROUTE),
+                    navbar_link("Pricing", routes.PRICING_ROUTE),
+                    navbar_link("Contact", routes.CONTACT_ROUTE),
                     spacing="5",
                 ),
                 rx.hstack(
@@ -52,9 +54,10 @@ def navbar() -> rx.Component:
                         width="2em",
                         height="auto",
                         border_radius="25%",
+                        on_click=NavState.to_home
                     ),
                     rx.heading(
-                        "Reflex", size="6", weight="bold"
+                        "Reflex", size="6", weight="bold", on_click=NavState.to_home
                     ),
                     align_items="center",
                 ),
@@ -63,10 +66,10 @@ def navbar() -> rx.Component:
                         rx.icon("menu", size=30)
                     ),
                     rx.menu.content(
-                        rx.menu.item("Home"),
-                        rx.menu.item("About"),
-                        rx.menu.item("Pricing"),
-                        rx.menu.item("Contact"),
+                        rx.menu.item("Home", on_click=NavState.to_home),
+                        rx.menu.item("About", on_click=NavState.to_about),
+                        rx.menu.item("Pricing", on_click=NavState.to_pricing),
+                        rx.menu.item("Contact", on_click=NavState.to_contact),
                         rx.menu.separator(),
                         rx.menu.item("Log in"),
                         rx.menu.item("Sign up"),
