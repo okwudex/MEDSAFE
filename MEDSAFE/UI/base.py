@@ -7,6 +7,7 @@ def base_page(child: rx.Component) -> rx.Component:
     return ( 
         rx.fragment(
             navbar(),
+            #navbar_searchbar(),
             child,
             rx.color_mode.button(position="bottom-left", id="lights-colours-id"),
             rx.logo(),

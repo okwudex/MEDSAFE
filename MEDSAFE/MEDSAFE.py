@@ -56,5 +56,5 @@ app = rx.App()
 app.add_page(index)
 app.add_page(about_page, route=routes.ABOUT_ROUTE)
 app.add_page(pricing_page, route =routes.PRICING_ROUTE)
-app.add_page(contact_page, route=routes.CONTACT_ROUTE)
+#app.add_page(contact_page, route=routes.CONTACT_ROUTE)
 

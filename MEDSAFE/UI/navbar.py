@@ -7,7 +7,52 @@ def navbar_link(text: str, url: str) -> rx.Component:
         rx.text(text, size="4", weight="medium"), href=url
     )
 
+def navbar_searchbar_desktop() -> rx.Component:
+    return rx.desktop_only(
+            rx.hstack(
+                rx.input(
+                    rx.input.slot(rx.icon("search")),
+                    placeholder="Search...",
+                    type="search",
+                    size="2",
+                    justify="end",
+                ),
+                justify="between",
+                align_items="center",
+            ),
+        bg=rx.color("accent", 3),
+        #padding="1em",
+        # position="fixed",
+        # top="0px",
+        # z_index="5",
+        #width="100%",
+        ),
+        
+def navbar_searchbar_mobile() -> rx.Component:
+    return rx.mobile_and_tablet(
+            rx.hstack(
+                rx.input(
+                    rx.input.slot(rx.icon("search")),
+                    placeholder="Search...",
+                    type="search",
+                    size="2",
+                    justify="end",
+                ),
+                justify="between",
+                align_items="center",
+            ), 
+        bg=rx.color("accent", 3),
+        #padding="1em",
+        # position="fixed",
+        # top="0px",
+        # z_index="5",
+        #width="100%",
+        ),
+        
 
+
+
+   
 def navbar() -> rx.Component:
     return rx.box(
         rx.desktop_only(
@@ -30,9 +75,11 @@ def navbar() -> rx.Component:
                     navbar_link("About", routes.ABOUT_ROUTE),
                     navbar_link("Pricing", routes.PRICING_ROUTE),
                     navbar_link("Contact", routes.CONTACT_ROUTE),
+                    
                     spacing="5",
                 ),
                 rx.hstack(
+                    navbar_searchbar_desktop(),
                     rx.button(
                         "Sign Up",
                         size="3",
@@ -59,6 +106,7 @@ def navbar() -> rx.Component:
                     rx.heading(
                         "Reflex", size="6", weight="bold", on_click=NavState.to_home
                     ),
+                    navbar_searchbar_mobile(),
                     align_items="center",
                 ),
                 rx.menu.root(
