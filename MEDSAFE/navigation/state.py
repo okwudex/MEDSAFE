@@ -11,4 +11,6 @@ class NavState(rx.State):
         return rx.redirect(routes.PRICING_ROUTE)
     def to_contact(self):
         return rx.redirect(routes.CONTACT_ROUTE)
+    def to_login(self):
+        return rx.redirect(routes.LOGIN_ROUTE)
 
