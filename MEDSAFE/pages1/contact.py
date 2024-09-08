@@ -4,9 +4,9 @@ from ..navigation import routes
 
 class ContactEntryModel(rx.Model, table=True):
     first_name: str
-    last_name: str
-    email: str
-    message: str
+    last_name: str | None = None
+    email: str | None = None
+    message: str | None = None
 class ContactState(rx.State):
     form_data: dict = {}
 
