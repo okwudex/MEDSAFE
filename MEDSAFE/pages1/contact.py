@@ -2,6 +2,11 @@ import reflex as rx
 from ..UI.base import base_page
 from ..navigation import routes
 
+class ContactEntryModel(rx.Model, table=True):
+    first_name: str
+    last_name: str
+    email: str
+    message: str
 class ContactState(rx.State):
     form_data: dict = {}
 
@@ -9,6 +14,19 @@ class ContactState(rx.State):
         #Handle form Submit
         print(form_data)
         self.form_data = form_data
+        data = {}
+        for k,v in form_data.items():
+            if v=="" or v is None:
+                continue
+            data[k]=v
+        print(data)
+        with rx.session as session:
+            db_entry=ContactEntryModel(
+                **data
+            )
+            session.add(db_entry)
+            session.commit()
+            session.did_submit = True
 
 @rx.page(route=routes.CONTACT_ROUTE)
 def contact_page() -> rx.Component:
